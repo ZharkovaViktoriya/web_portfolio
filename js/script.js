@@ -247,7 +247,13 @@
   const projectsData = {
     skildo: {
       year: '2026',
-      image: 'https://picsum.photos/seed/skildo/1200/800',
+      images: [
+        'img/skildo/1.png',
+        'img/skildo/2.png',
+        'img/skildo/3.png',
+        'img/skildo/4.png',
+        'img/skildo/5.png'
+      ],
       categories: ['web', 'ui'],
       tags: ['Web Design', 'UI Design', 'UX', 'Motion', 'App Design'],
       tools: ['Figma', 'Adobe After Effects'],
@@ -282,12 +288,18 @@
     },
     shift: {
       year: '2026',
-      image: 'https://picsum.photos/seed/shift/1200/800',
+      images: [
+        'img/shift/1.png',
+        'img/shift/2.png',
+        'img/shift/3.png',
+        'img/shift/4.png',
+        'img/shift/5.png'
+      ],
       categories: ['3d', 'graphic'],
       tags: ['3D', 'Game Design', 'Character Design', 'UI', 'Concept'],
       tools: ['Figma', 'Blender', 'Photoshop'],
       ru: {
-        title: 'SHIFT',
+        title: 'Смена',
         subtitle: 'Концепция 3D-игры «Смена»',
         description: '3D-игра с проработанными персонажами и окружением.',
         role: 'Автор проекта',
@@ -315,12 +327,18 @@
     },
     pilo: {
       year: '2026',
-      image: 'https://picsum.photos/seed/pilo/1200/800',
+      images: [
+        'img/pilo/1.png',
+        'img/pilo/2.png',
+        'img/pilo/3.png',
+        'img/pilo/4.png',
+        'img/pilo/5.png'
+      ],
       categories: ['3d', 'ui'],
       tags: ['3D', 'Product Design', 'UI', 'Concept', 'Prototyping'],
       tools: ['Figma', 'Blender', 'Illustrator'],
       ru: {
-        title: 'PILO',
+        title: 'Пило',
         subtitle: 'Концепция робота-трекера для таблеток',
         description: 'Концепт робота-трекера для напоминаний о приёме лекарств.',
         role: 'Автор проекта',
@@ -348,12 +366,18 @@
     },
     print: {
       year: '2025',
-      image: 'https://picsum.photos/seed/3dprint/1200/800',
+      images: [
+        'img/print/1.png',
+        'img/print/2.png',
+        'img/print/3.png',
+        'img/print/4.png',
+        'img/print/5.png'
+      ],
       categories: ['web', 'ui', 'graphic'],
       tags: ['Web Design', 'Frontend', 'UI', 'HTML', 'CSS', 'JavaScript'],
       tools: ['HTML', 'CSS', 'JavaScript', 'Figma'],
       ru: {
-        title: '3D PRINT STUDIO',
+        title: 'Студия 3Д-печати',
         subtitle: 'Веб-сайт для студии 3D-печати',
         description: 'Веб-сайт для студии 3D-печати: интерактивный прототип и финальная реализация.',
         role: 'Разработчик',
@@ -379,7 +403,13 @@
     },
     tommy: {
       year: '2025',
-      image: 'https://picsum.photos/seed/tommy/1200/800',
+      images: [
+        'img/tommy/1.png',
+        'img/tommy/2.png',
+        'img/tommy/3.png',
+        'img/tommy/4.png',
+        'img/tommy/5.png'
+      ],
       categories: ['branding', 'graphic'],
       tags: ['Branding', '3D', 'Graphic Design', 'Exhibition', 'Visual Design'],
       tools: ['Figma', 'Blender'],
@@ -427,12 +457,12 @@
   /* ---------------------------------------------------------
      4. HELPERS
      --------------------------------------------------------- */
-  const $ = (sel, ctx = document) => ctx.querySelector(sel);
-  const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
-  
-  function t(key) {
-    return (translations[state.lang] && translations[state.lang][key]) || key;
-  }
+     const $ = (sel, ctx = document) => ctx.querySelector(sel);
+     const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+     
+     function t(key) {
+       return (translations[state.lang] && translations[state.lang][key]) || key;
+     }
   
   /* ---------------------------------------------------------
      5. THEME
@@ -575,46 +605,143 @@
   }
   
   /* ---------------------------------------------------------
-     10. SCROLL REVEAL
-     --------------------------------------------------------- */
-  function initReveal() {
-    const items = $$('.section, .project-card, .timeline__item, .paper-card, .polaroid');
-    items.forEach(el => el.setAttribute('data-reveal', ''));
-  
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
-    );
-  
-    items.forEach(el => observer.observe(el));
+   10. SCROLL REVEAL
+   --------------------------------------------------------- */
+function initReveal() {
+  const SELECTOR = [
+    '.section__head',
+    '.about__photo-wrap',
+    '.about__card',
+    '.timeline__item',
+    '.project-card',
+    '.edu__card',
+    '.skills__group',
+    '.contact__main',
+    '.contact__aside'
+  ].join(',');
+
+  const items = $$(SELECTOR);
+  if (!items.length) return;
+
+  // Прячем сразу — до первого кадра
+  items.forEach(el => el.classList.add('reveal'));
+
+  // Fallback для очень старых браузеров
+  if (!('IntersectionObserver' in window)) {
+    items.forEach(el => el.classList.add('is-visible'));
+    return;
   }
-  
-  /* ---------------------------------------------------------
-     11. SMOOTH SCROLL (anchor offsets for sticky header)
-     --------------------------------------------------------- */
-  function initSmoothScroll() {
-    $$('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', e => {
-        const id = link.getAttribute('href');
-        if (!id || id === '#' || id.length < 2) return;
-        const target = document.querySelector(id);
-        if (!target) return;
-        e.preventDefault();
-        const headerH = parseInt(
-          getComputedStyle(document.documentElement).getPropertyValue('--header-h')
-        ) || 62;
-        const top = target.getBoundingClientRect().top + window.pageYOffset - headerH - 10;
-        window.scrollTo({ top, behavior: 'smooth' });
+
+  const play = (el) => {
+    el.classList.add('is-visible');
+    // Снимаем служебные классы после проигрывания,
+    // чтобы animation больше не перебивала hover-эффекты
+    el.addEventListener('animationend', () => {
+      el.classList.remove('reveal', 'is-visible');
+      el.style.removeProperty('--reveal-delay');
+    }, { once: true });
+  };
+
+  // Двойной rAF: браузер гарантированно отрисует скрытое состояние
+  // до того, как мы начнём вешать observer. Это лечит «топорность»
+  // на больших экранах, где много блоков попадает в первый вьюпорт.
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          play(entry.target);
+          observer.unobserve(entry.target);
+        });
+      }, {
+        threshold: 0.01,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      items.forEach(el => {
+        // «Лесенка» внутри одного контейнера — карточки идут волной
+        const parent = el.parentElement;
+        const siblings = parent
+          ? Array.from(parent.children).filter(c => items.includes(c))
+          : [el];
+        const index = Math.max(0, siblings.indexOf(el));
+        el.style.setProperty('--reveal-delay', `${Math.min(index, 4) * 70}ms`);
+        observer.observe(el);
       });
     });
+  });
+}
+  
+  /* ---------------------------------------------------------
+   11. SMOOTH SCROLL
+   Свой rAF-движок — одинаково работает во всех браузерах,
+   не конфликтует с `scroll-behavior: smooth` и «поднимает»
+   reveal-анимации блоков по пути.
+   --------------------------------------------------------- */
+const easeInOutCubic = t =>
+  t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+function animateScrollTo(targetY, customDuration) {
+  const startY = window.pageYOffset;
+  const distance = targetY - startY;
+
+  if (Math.abs(distance) < 2) return;
+
+  // Пока мы рулим скроллом вручную — отключаем нативный smooth,
+  // иначе он «спорит» с нашими кадрами
+  const html = document.documentElement;
+  const prevBehavior = html.style.scrollBehavior;
+  html.style.scrollBehavior = 'auto';
+
+  // Длительность зависит от дистанции: чем дальше — тем дольше,
+  // но не дольше 1.4с и не короче 0.5с
+  const duration =
+    customDuration ||
+    Math.min(1400, Math.max(500, Math.abs(distance) * 0.55));
+  const startTime = performance.now();
+
+  function step(now) {
+    const progress = Math.min((now - startTime) / duration, 1);
+    window.scrollTo(0, startY + distance * easeInOutCubic(progress));
+
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    } else {
+      html.style.scrollBehavior = prevBehavior;
+    }
   }
+
+  requestAnimationFrame(step);
+}
+
+function getScrollTargetTop(target) {
+  const headerH =
+    parseInt(
+      getComputedStyle(document.documentElement).getPropertyValue('--header-h'),
+      10
+    ) || 62;
+  return Math.max(
+    0,
+    target.getBoundingClientRect().top + window.pageYOffset - headerH - 12
+  );
+}
+
+function initSmoothScroll() {
+  $$('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const hash = link.getAttribute('href');
+      if (!hash || hash === '#' || hash.length < 2) return;
+
+      const target = document.querySelector(hash);
+      if (!target) return;
+
+      e.preventDefault();
+      animateScrollTo(getScrollTargetTop(target));
+
+      if (history.pushState) history.pushState(null, '', hash);
+    });
+  });
+}
   
   /* ---------------------------------------------------------
      12. PROJECT FILTER
@@ -647,71 +774,145 @@
   /* ---------------------------------------------------------
      13. MODAL
      --------------------------------------------------------- */
-  function openModal(projectId, focus = true) {
-    const modal = $('#project-modal');
-    const body = $('#modal-body');
-    const data = projectsData[projectId];
-    if (!modal || !body || !data) return;
-  
-    const lang = state.lang;
-    const d = data[lang] || data.ru;
-  
-    body.innerHTML = `
-      <div class="modal__hero">
-        <img src="${data.image}" alt="${d.title}" loading="lazy" />
-      </div>
-      <div class="modal__content">
-        <div class="modal__head">
-          <h2 class="modal__title" id="modal-title">${d.title}</h2>
-          <span class="modal__year">${data.year}</span>
+     function openModal(projectId, focus = true) {
+      const modal = $('#project-modal');
+      const body = $('#modal-body');
+      const data = projectsData[projectId];
+      if (!modal || !body || !data) return;
+    
+      const lang = state.lang;
+      const d = data[lang] || data.ru;
+      const images = data.images && data.images.length
+        ? data.images
+        : ['images/placeholder.jpg'];
+    
+      // сохраняем позицию, если модалка уже открыта (например, при смене языка)
+      const prevTrack = modal.querySelector('.modal__gallery-track');
+      const prevScroll = prevTrack ? prevTrack.scrollLeft : 0;
+    
+      body.innerHTML = `
+        <div class="modal__gallery" data-gallery>
+          <div class="modal__gallery-track">
+            ${images.map((src, i) => `
+              <div class="modal__gallery-slide">
+                <img src="${src}" alt="${d.title} — ${i + 1}" loading="lazy" />
+              </div>
+            `).join('')}
+          </div>
+    
+          ${images.length > 1 ? `
+            <button class="modal__gallery-nav modal__gallery-nav--prev"
+                    type="button" aria-label="Previous image">‹</button>
+            <button class="modal__gallery-nav modal__gallery-nav--next"
+                    type="button" aria-label="Next image">›</button>
+    
+            <div class="modal__gallery-dots">
+              ${images.map((_, i) => `
+                <button class="modal__gallery-dot${i === 0 ? ' is-active' : ''}"
+                        type="button"
+                        data-index="${i}"
+                        aria-label="Go to image ${i + 1}"></button>
+              `).join('')}
+            </div>
+          ` : ''}
         </div>
-        <span class="modal__category">${d.subtitle}</span>
-  
-        <div class="modal__section">
-          <h3 class="modal__section-title">${t('modal.role')}</h3>
-          <p class="modal__desc"><strong>${d.role}</strong></p>
-        </div>
-  
-        <div class="modal__section">
-          <h3 class="modal__section-title">${t('modal.tasks')}</h3>
-          <ul class="modal__tasks">
-            ${d.tasks.map(task => `<li>${task}</li>`).join('')}
-          </ul>
-        </div>
-  
-        <div class="modal__section">
-          <h3 class="modal__section-title">${t('modal.tools')}</h3>
-          <div class="modal__tools">
-            ${data.tools.map(tool => `<span class="tag tag--blue">${tool}</span>`).join('')}
+    
+        <div class="modal__content">
+          <div class="modal__head">
+            <h2 class="modal__title" id="modal-title">${d.title}</h2>
+            <span class="modal__year">${data.year}</span>
+          </div>
+          <span class="modal__category">${d.subtitle}</span>
+    
+          <div class="modal__section">
+            <h3 class="modal__section-title">${t('modal.role')}</h3>
+            <p class="modal__desc"><strong>${d.role}</strong></p>
+          </div>
+    
+          <div class="modal__section">
+            <h3 class="modal__section-title">${t('modal.tasks')}</h3>
+            <ul class="modal__tasks">
+              ${d.tasks.map(task => `<li>${task}</li>`).join('')}
+            </ul>
+          </div>
+    
+          <div class="modal__section">
+            <h3 class="modal__section-title">${t('modal.tools')}</h3>
+            <div class="modal__tools">
+              ${data.tools.map(tool => `<span class="tag tag--blue">${tool}</span>`).join('')}
+            </div>
+          </div>
+    
+          <div class="modal__section">
+            <h3 class="modal__section-title">${t('modal.tags')}</h3>
+            <div class="modal__tags">
+              ${data.tags.map((tag, i) => {
+                const colors = ['pink', 'purple', 'yellow', 'green', 'orange', 'blue'];
+                const c = colors[i % colors.length];
+                return `<span class="tag tag--${c}">${tag}</span>`;
+              }).join('')}
+            </div>
           </div>
         </div>
-  
-        <div class="modal__section">
-          <h3 class="modal__section-title">${t('modal.tags')}</h3>
-          <div class="modal__tags">
-            ${data.tags.map((tag, i) => {
-              const colors = ['pink', 'purple', 'yellow', 'green', 'orange', 'blue'];
-              const c = colors[i % colors.length];
-              return `<span class="tag tag--${c}">${tag}</span>`;
-            }).join('')}
-          </div>
-        </div>
-      </div>
-    `;
-  
-    state.lastFocusedEl = document.activeElement;
-    modal.dataset.projectId = projectId;
-    modal.classList.add('is-open');
-    modal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  
-    if (focus) {
-      setTimeout(() => {
-        const closeBtn = modal.querySelector('.modal__close');
-        if (closeBtn) closeBtn.focus();
-      }, 50);
+      `;
+    
+      initModalGallery(modal, images.length);
+    
+      // восстановить позицию скролла галереи (актуально при смене языка)
+      if (prevScroll > 0) {
+        const track = modal.querySelector('.modal__gallery-track');
+        if (track) {
+          requestAnimationFrame(() => { track.scrollLeft = prevScroll; });
+        }
+      }
+    
+      state.lastFocusedEl = document.activeElement;
+      modal.dataset.projectId = projectId;
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    
+      if (focus) {
+        setTimeout(() => {
+          const closeBtn = modal.querySelector('.modal__close');
+          if (closeBtn) closeBtn.focus();
+        }, 50);
+      }
     }
-  }
+  
+    function initModalGallery(modal, count) {
+      const track = modal.querySelector('.modal__gallery-track');
+      if (!track || count < 2) return;
+    
+      const prev = modal.querySelector('.modal__gallery-nav--prev');
+      const next = modal.querySelector('.modal__gallery-nav--next');
+      const dots = Array.from(modal.querySelectorAll('.modal__gallery-dot'));
+    
+      const slideW = () => track.clientWidth;
+      const currentIndex = () => Math.round(track.scrollLeft / slideW());
+    
+      const goTo = (i) => {
+        const clamped = Math.max(0, Math.min(count - 1, i));
+        track.scrollTo({ left: clamped * slideW(), behavior: 'smooth' });
+      };
+    
+      if (prev) prev.addEventListener('click', () => goTo(currentIndex() - 1));
+      if (next) next.addEventListener('click', () => goTo(currentIndex() + 1));
+    
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => goTo(parseInt(dot.dataset.index, 10)));
+      });
+    
+      // синхронизация точек при скролле / свайпе
+      let rafId = 0;
+      track.addEventListener('scroll', () => {
+        cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(() => {
+          const idx = currentIndex();
+          dots.forEach((d, i) => d.classList.toggle('is-active', i === idx));
+        });
+      }, { passive: true });
+    }
   
   function closeModal() {
     const modal = $('#project-modal');
@@ -831,7 +1032,7 @@
     window.addEventListener('scroll', onScroll, { passive: true });
   
     btn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      animateScrollTo(0, 700);
     });
   }
   

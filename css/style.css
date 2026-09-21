@@ -66,7 +66,14 @@
   *::before,
   *::after { box-sizing: border-box; }
   
-  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  html { 
+    scroll-behavior: smooth;
+     -webkit-text-size-adjust: 100%;
+     scroll-padding-top: calc(var(--header-h) + 16px);
+ }
+  main section[id] {
+    scroll-margin-top: calc(var(--header-h) + 16px);
+  }
   
   body {
     margin: 0;
@@ -1381,6 +1388,118 @@
     border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   }
   .modal__hero img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* =========================================================
+   MODAL GALLERY
+   ========================================================= */
+.modal__gallery {
+  position: relative;
+  border-bottom: 2px solid var(--border);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  overflow: hidden;
+  background: var(--bg-alt);
+}
+
+.modal__gallery-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+}
+
+.modal__gallery-track::-webkit-scrollbar { height: 6px; }
+.modal__gallery-track::-webkit-scrollbar-thumb {
+  background: var(--border-soft);
+  border-radius: 3px;
+}
+
+.modal__gallery-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  aspect-ratio: 16 / 9;
+  position: relative;
+}
+
+.modal__gallery-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Стрелки */
+.modal__gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  background: var(--surface);
+  color: var(--text);
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  box-shadow: var(--shadow-sm);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+  transition: transform .15s var(--ease), background-color .2s var(--ease);
+}
+.modal__gallery-nav:hover {
+  transform: translateY(-50%) scale(1.08);
+  background: var(--accent-yellow);
+}
+.modal__gallery-nav--prev { left: 12px; }
+.modal__gallery-nav--next { right: 12px; }
+
+/* Точки */
+.modal__gallery-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  padding: 6px 10px;
+  background: rgba(17, 17, 17, .55);
+  border-radius: 999px;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  z-index: 2;
+}
+
+.modal__gallery-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .55);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color .2s var(--ease), transform .2s var(--ease);
+}
+.modal__gallery-dot.is-active {
+  background: #fff;
+  transform: scale(1.3);
+}
+
+/* На очень узких экранах стрелки чуть меньше */
+@media (max-width: 480px) {
+  .modal__gallery-nav {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+  .modal__gallery-nav--prev { left: 8px; }
+  .modal__gallery-nav--next { right: 8px; }
+}
   
   .modal__content { padding: 26px 22px 30px; }
   @media (min-width: 768px) { .modal__content { padding: 34px 40px 40px; } }
@@ -1482,24 +1601,27 @@
   .toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
   
   /* =========================================================
-     REVEAL ANIMATION
-     ========================================================= */
-  [data-reveal] {
+   REVEAL ANIMATION
+   Использует @keyframes, а не transition — так анимация
+   не конфликтует с hover-эффектами карточек.
+   ========================================================= */
+.reveal {
+  opacity: 0;
+}
+
+.reveal.is-visible {
+  animation: revealIn .8s cubic-bezier(.22, .61, .36, 1)
+             var(--reveal-delay, 0ms) both;
+}
+
+@keyframes revealIn {
+  from {
     opacity: 0;
-    transform: translateY(24px);
-    transition: opacity .7s var(--ease), transform .7s var(--ease);
+    transform: translate3d(0, 32px, 0);
   }
-  [data-reveal].is-visible {
+  to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
-  
-  /* Reduce motion */
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-    }
-    html { scroll-behavior: auto; }
-  }
+}
+
