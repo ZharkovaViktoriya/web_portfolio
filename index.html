@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Виктория Жаркова — Web Designer</title>
+  <meta name="description" content="Портфолио и резюме веб-дизайнера Виктории Жарковой. Web Design, UI, 3D, Branding, Typography." />
+  <meta name="theme-color" content="#F5F3ED" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Виктория Жаркова — Web Designer" />
+  <meta property="og:description" content="Создаю визуальные идеи, интерфейсы и цифровые проекты." />
+  <meta property="og:image" content="https://picsum.photos/seed/victoria-og/1200/630" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:locale:alternate" content="en_US" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@500;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Paper grain overlay -->
+  <div class="paper-grain" aria-hidden="true"></div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="site-header">
+    <div class="container site-header__inner">
+      <a href="#home" class="logo" aria-label="Viktoria Zharkova — Home">
+        <span class="logo__mark">VZ</span>
+        <span class="logo__text">VIKTORIA ZHARKOVA</span>
+      </a>
+
+      <nav class="nav" id="nav-menu" aria-label="Main navigation">
+        <ul class="nav__list">
+          <li><a href="#home" class="nav__link" data-i18n="nav.home">Главная</a></li>
+          <li><a href="#about" class="nav__link" data-i18n="nav.about">Обо мне</a></li>
+          <li><a href="#experience" class="nav__link" data-i18n="nav.experience">Опыт</a></li>
+          <li><a href="#projects" class="nav__link" data-i18n="nav.projects">Проекты</a></li>
+          <li><a href="#skills" class="nav__link" data-i18n="nav.skills">Навыки</a></li>
+          <li><a href="#contacts" class="nav__link" data-i18n="nav.contact">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-header__actions">
+        <button
+          class="icon-btn lang-switch"
+          id="lang-toggle"
+          type="button"
+          aria-label="Switch language"
+        >
+          <span class="lang-switch__label">RU</span>
+        </button>
+
+        <button
+          class="icon-btn theme-switch"
+          id="theme-toggle"
+          type="button"
+          aria-label="Toggle theme"
+        >
+          <span class="theme-switch__icon" aria-hidden="true">
+            <svg class="theme-switch__sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+            </svg>
+            <svg class="theme-switch__moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z" />
+            </svg>
+          </span>
+        </button>
+
+        <button
+          class="icon-btn burger"
+          id="burger"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="nav-menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section id="home" class="hero">
+      <div class="container hero__inner">
+        <!-- decorative stickers -->
+        <div class="sticker sticker--yellow sticker--rotate-l" aria-hidden="true" data-i18n="hero.portfolio">
+          PORTFOLIO / 2026
+        </div>
+        <div class="sticker sticker--blue sticker--rotate-r hero__sticker-role" aria-hidden="true">
+          ✦ WEB DESIGN
+        </div>
+        <div class="decor decor--star-1" aria-hidden="true">✦</div>
+        <div class="decor decor--star-2" aria-hidden="true">✧</div>
+        <div class="decor decor--circle" aria-hidden="true"></div>
+        <div class="tape tape--hero-1" aria-hidden="true"></div>
+        <div class="tape tape--hero-2" aria-hidden="true"></div>
+
+        <p class="hero__eyebrow" data-i18n="hero.eyebrow">✦ Портфолио дизайнера ✦</p>
+
+        <h1 class="hero__title">
+          <span class="hero__title-line">
+            <span class="letter">V</span>
+            <span class="letter letter--mark letter--pink">I</span>
+            <span class="letter">K</span>
+            <span class="letter">T</span>
+            <span class="letter letter--mark letter--yellow">O</span>
+            <span class="letter">R</span>
+            <span class="letter letter--mark letter--blue">I</span>
+            <span class="letter">A</span>
+          </span>
+          <span class="hero__title-line hero__title-line--offset">
+            <span class="letter">Z</span>
+            <span class="letter">H</span>
+            <span class="letter letter--mark letter--green">A</span>
+            <span class="letter">R</span>
+            <span class="letter">K</span>
+            <span class="letter letter--mark letter--purple">O</span>
+            <span class="letter">V</span>
+            <span class="letter letter--mark letter--orange">A</span>
+          </span>
+        </h1>
+
+        <div class="hero__sub">
+          <span class="sticker sticker--black" data-i18n="hero.role">Web Designer</span>
+          <span class="hero__hand" data-i18n="hero.handNote">creating ideas ↓</span>
+        </div>
+
+        <p class="hero__tagline" data-i18n="hero.tagline">
+          Создаю визуальные идеи, интерфейсы и цифровые проекты.
+        </p>
+
+        <div class="hero__cta">
+          <a href="#projects" class="btn btn--primary" data-i18n="hero.viewProjects">
+            Посмотреть проекты
+          </a>
+          <a href="#contacts" class="btn btn--outline" data-i18n="hero.contact">
+            Связаться со мной
+          </a>
+        </div>
+
+        <div class="hero__meta" aria-hidden="true">
+          <span class="hero__meta-item">Figma</span>
+          <span class="hero__meta-dot">●</span>
+          <span class="hero__meta-item">Adobe</span>
+          <span class="hero__meta-dot">●</span>
+          <span class="hero__meta-item">Blender</span>
+          <span class="hero__meta-dot">●</span>
+          <span class="hero__meta-item">HTML / CSS / JS</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="section about">
+      <div class="container">
+        <header class="section__head">
+          <span class="section__index">01</span>
+          <h2 class="section__title" data-i18n="about.title">Обо мне</h2>
+          <span class="section__marker" data-i18n="about.marker">About me →</span>
+        </header>
+
+        <div class="about__grid">
+          <!-- Photo polaroid -->
+          <div class="about__photo-wrap">
+            <div class="polaroid polaroid--rotate-l">
+              <div class="polaroid__tape" aria-hidden="true"></div>
+              <img
+                class="polaroid__img"
+                src="https://picsum.photos/seed/victoria/800/1000"
+                alt="Портрет Виктории Жарковой — placeholder"
+                loading="lazy"
+              />
+              <span class="polaroid__caption" data-i18n="about.photoCaption">HELLO, I'M VICTORIA :)</span>
+            </div>
+            <div class="paperclip" aria-hidden="true"></div>
+            <div class="sticker sticker--pink sticker--small sticker--rotate-r about__sticker-1" aria-hidden="true">
+              4 курс
+            </div>
+          </div>
+
+          <!-- Text card -->
+          <article class="paper-card about__card">
+            <div class="about__card-head">
+              <span class="marker-marker" data-i18n="about.markerLabel">About</span>
+              <h3 class="about__card-title" data-i18n="about.cardTitle">
+                Прикладная информатика в дизайне
+              </h3>
+              <p class="about__card-meta">
+                <span>СПбГУПТД</span> · <span data-i18n="about.cardMeta">4 курс · 2023—2027</span>
+              </p>
+            </div>
+
+            <p class="about__text" data-i18n="about.p1">
+              Я студентка 4 курса СПбГУПТД, изучаю дизайн и цифровые технологии на программе «Прикладная информатика в дизайне».
+            </p>
+            <p class="about__text" data-i18n="about.p2">
+              Работаю на стыке дизайна и разработки: создаю интерфейсы, веб-сайты, визуальные концепции, брендинг, логотипы, 3D-модели и цифровые проекты. Мне особенно интересно 3D-направление, которое я постепенно развиваю через учебные и самостоятельные проекты.
+            </p>
+            <p class="about__text" data-i18n="about.p3">
+              В работе ценю системность, внимание к деталям и желание довести результат до действительно качественного состояния.
+            </p>
+
+            <ul class="about__facts">
+              <li><span class="tag tag--yellow" data-i18n="about.fact1">Системность</span></li>
+              <li><span class="tag tag--blue" data-i18n="about.fact2">Внимание к деталям</span></li>
+              <li><span class="tag tag--pink" data-i18n="about.fact3">Постоянное развитие</span></li>
+              <li><span class="tag tag--green" data-i18n="about.fact4">Трудолюбие</span></li>
+            </ul>
+
+            <div class="decor decor--arrow" aria-hidden="true">
+              <svg viewBox="0 0 100 40" width="90" height="36" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M2 20 Q 40 4, 80 22" />
+                <path d="M70 14 L 84 24 L 72 32" />
+              </svg>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section id="experience" class="section experience">
+      <div class="container">
+        <header class="section__head">
+          <span class="section__index">02</span>
+          <h2 class="section__title" data-i18n="exp.title">Опыт</h2>
+          <span class="section__marker" data-i18n="exp.marker">Selected experience →</span>
+        </header>
+
+        <ol class="timeline">
+          <!-- SKILDO -->
+          <li class="timeline__item">
+            <div class="timeline__year">2026</div>
+            <article class="paper-card timeline__card">
+              <header class="timeline__head">
+                <h3 class="timeline__title">SKILDO</h3>
+                <p class="timeline__subtitle" data-i18n="exp.skildo.sub">Веб-приложение</p>
+              </header>
+              <p class="timeline__role">
+                <strong data-i18n="exp.roleLabel">Роль:</strong>
+                <span data-i18n="exp.skildo.role">Организатор, визуализатор</span>
+              </p>
+              <p class="timeline__desc" data-i18n="exp.skildo.desc">
+                Концепция веб-приложения для критического мышления и интерактивного обучения: структура, экраны, адаптивная вёрстка, user flow, task flow, screen maps, оформление для App Store и рекламный видеоролик.
+              </p>
+              <div class="timeline__tags">
+                <span class="tag tag--pink">Web Design</span>
+                <span class="tag tag--blue">UI Design</span>
+                <span class="tag tag--purple">UX</span>
+                <span class="tag tag--yellow">Motion</span>
+                <span class="tag tag--orange">App Design</span>
+              </div>
+              <p class="timeline__tools"><span data-i18n="exp.toolsLabel">Инструменты:</span> Figma · Adobe After Effects</p>
+            </article>
+          </li>
+
+          <!-- SHIFT -->
+          <li class="timeline__item">
+            <div class="timeline__year">2026</div>
+            <article class="paper-card timeline__card">
+              <header class="timeline__head">
+                <h3 class="timeline__title">SHIFT</h3>
+                <p class="timeline__subtitle" data-i18n="exp.shift.sub">Концепция 3D-игры «Смена»</p>
+              </header>
+              <p class="timeline__role">
+                <strong data-i18n="exp.roleLabel">Роль:</strong>
+                <span data-i18n="exp.shift.role">Автор проекта</span>
+              </p>
+              <p class="timeline__desc" data-i18n="exp.shift.desc">
+                Создание концепции 3D-игры: разработка 3D-моделей персонажей и локаций, эскизы, а также интерфейсы.
+              </p>
+              <div class="timeline__tags">
+                <span class="tag tag--purple">3D</span>
+                <span class="tag tag--pink">Game Design</span>
+                <span class="tag tag--blue">Character Design</span>
+                <span class="tag tag--green">UI</span>
+                <span class="tag tag--yellow">Concept</span>
+              </div>
+              <p class="timeline__tools"><span data-i18n="exp.toolsLabel">Инструменты:</span> Figma · Blender · Photoshop</p>
+            </article>
+          </li>
+
+          <!-- PILO -->
+          <li class="timeline__item">
+            <div class="timeline__year">2026</div>
+            <article class="paper-card timeline__card">
+              <header class="timeline__head">
+                <h3 class="timeline__title">PILO</h3>
+                <p class="timeline__subtitle" data-i18n="exp.pilo.sub">Концепция робота-трекера для таблеток</p>
+              </header>
+              <p class="timeline__role">
+                <strong data-i18n="exp.roleLabel">Роль:</strong>
+                <span data-i18n="exp.pilo.role">Автор проекта</span>
+              </p>
+              <p class="timeline__desc" data-i18n="exp.pilo.desc">
+                Разработка концепции, 3D-модели, прототипа и интерфейсов. Анализ аналогов.
+              </p>
+              <div class="timeline__tags">
+                <span class="tag tag--purple">3D</span>
+                <span class="tag tag--orange">Product Design</span>
+                <span class="tag tag--blue">UI</span>
+                <span class="tag tag--yellow">Concept</span>
+                <span class="tag tag--green">Prototyping</span>
+              </div>
+              <p class="timeline__tools"><span data-i18n="exp.toolsLabel">Инструменты:</span> Figma · Blender · Illustrator</p>
+            </article>
+          </li>
+
+          <!-- 3D print studio -->
+          <li class="timeline__item">
+            <div class="timeline__year">2025</div>
+            <article class="paper-card timeline__card">
+              <header class="timeline__head">
+                <h3 class="timeline__title">3D PRINT STUDIO</h3>
+                <p class="timeline__subtitle" data-i18n="exp.print.sub">Веб-сайт для студии 3D-печати</p>
+              </header>
+              <p class="timeline__role">
+                <strong data-i18n="exp.roleLabel">Роль:</strong>
+                <span data-i18n="exp.print.role">Разработчик</span>
+              </p>
+              <p class="timeline__desc" data-i18n="exp.print.desc">
+                Создание интерактивного прототипа, структуры сайта, интерфейса и финального сайта на HTML/CSS/JS.
+              </p>
+              <div class="timeline__tags">
+                <span class="tag tag--pink">Web Design</span>
+                <span class="tag tag--blue">Frontend</span>
+                <span class="tag tag--purple">UI</span>
+                <span class="tag tag--yellow">HTML</span>
+                <span class="tag tag--green">CSS</span>
+                <span class="tag tag--orange">JavaScript</span>
+              </div>
+              <p class="timeline__tools"><span data-i18n="exp.toolsLabel">Инструменты:</span> HTML · CSS · JavaScript · Figma</p>
+            </article>
+          </li>
+
+          <!-- Tommy -->
+          <li class="timeline__item">
+            <div class="timeline__year">2025</div>
+            <article class="paper-card timeline__card">
+              <header class="timeline__head">
+                <h3 class="timeline__title">TOMMY HILFIGER</h3>
+                <p class="timeline__subtitle" data-i18n="exp.tommy.sub">Концепция интерактивной выставки</p>
+              </header>
+              <p class="timeline__role">
+                <strong data-i18n="exp.roleLabel">Роль:</strong>
+                <span data-i18n="exp.tommy.role">Визуализатор</span>
+              </p>
+              <p class="timeline__desc" data-i18n="exp.tommy.desc">
+                Разработка логотипа, landing page, афиш, баннеров, 3D-пространства выставки, рекламного ролика и дизайна билета.
+              </p>
+              <div class="timeline__tags">
+                <span class="tag tag--pink">Branding</span>
+                <span class="tag tag--purple">3D</span>
+                <span class="tag tag--blue">Graphic Design</span>
+                <span class="tag tag--yellow">Exhibition</span>
+                <span class="tag tag--orange">Visual Design</span>
+              </div>
+              <p class="timeline__tools"><span data-i18n="exp.toolsLabel">Инструменты:</span> Figma · Blender</p>
+            </article>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section id="projects" class="section projects">
+      <div class="container">
+        <header class="section__head">
+          <span class="section__index">03</span>
+          <h2 class="section__title" data-i18n="projects.title">Selected Projects</h2>
+          <span class="section__marker" data-i18n="projects.marker">2025 — 2026 →</span>
+        </header>
+
+        <div class="filters" role="tablist" aria-label="Project filters">
+          <button class="filter is-active" data-filter="all" data-i18n="filter.all" role="tab" aria-selected="true">ВСЕ</button>
+          <button class="filter" data-filter="web" data-i18n="filter.web" role="tab" aria-selected="false">WEB</button>
+          <button class="filter" data-filter="ui" data-i18n="filter.ui" role="tab" aria-selected="false">UI</button>
+          <button class="filter" data-filter="3d" data-i18n="filter.3d" role="tab" aria-selected="false">3D</button>
+          <button class="filter" data-filter="branding" data-i18n="filter.branding" role="tab" aria-selected="false">БРЕНДИНГ</button>
+          <button class="filter" data-filter="graphic" data-i18n="filter.graphic" role="tab" aria-selected="false">ГРАФИКА</button>
+        </div>
+
+        <div class="projects__grid" id="projects-grid">
+          <!-- SKILDO -->
+          <article class="project-card project-card--lg" data-category="web ui" data-project="skildo" tabindex="0" role="button" aria-label="Open SKILDO project">
+            <div class="project-card__media">
+              <img src="https://picsum.photos/seed/skildo/1200/800" alt="SKILDO web application" loading="lazy" />
+              <span class="project-card__badge" data-i18n="badge.web">WEB APP</span>
+              <span class="tape tape--card" aria-hidden="true"></span>
+            </div>
+            <div class="project-card__body">
+              <header class="project-card__head">
+                <h3 class="project-card__title">SKILDO</h3>
+                <span class="project-card__year">2026</span>
+              </header>
+              <p class="project-card__desc" data-i18n="card.skildo.desc">
+                Веб-приложение для критического мышления и интерактивного обучения.
+              </p>
+              <ul class="project-card__tags">
+                <li class="tag tag--pink">Web Design</li>
+                <li class="tag tag--blue">UI</li>
+                <li class="tag tag--purple">UX</li>
+              </ul>
+              <span class="project-card__more" data-i18n="card.more">Смотреть →</span>
+            </div>
+          </article>
+
+          <!-- SHIFT -->
+          <article class="project-card" data-category="3d graphic" data-project="shift" tabindex="0" role="button" aria-label="Open SHIFT project">
+            <div class="project-card__media">
+              <img src="https://picsum.photos/seed/shift/1200/800" alt="SHIFT 3D game concept" loading="lazy" />
+              <span class="project-card__badge" data-i18n="badge.3d">3D</span>
+              <span class="sticker sticker--yellow sticker--small sticker--rotate-r project-card__sticker" aria-hidden="true">✦</span>
+            </div>
+            <div class="project-card__body">
+              <header class="project-card__head">
+                <h3 class="project-card__title">SHIFT</h3>
+                <span class="project-card__year">2026</span>
+              </header>
+              <p class="project-card__desc" data-i18n="card.shift.desc">
+                3D-игра: персонажи, локации и интерфейсы.
+              </p>
+              <ul class="project-card__tags">
+                <li class="tag tag--purple">3D</li>
+                <li class="tag tag--pink">Game Design</li>
+                <li class="tag tag--green">Character</li>
+              </ul>
+              <span class="project-card__more" data-i18n="card.more">Смотреть →</span>
+            </div>
+          </article>
+
+          <!-- PILO -->
+          <article class="project-card" data-category="3d ui" data-project="pilo" tabindex="0" role="button" aria-label="Open PILO project">
+            <div class="project-card__media">
+              <img src="https://picsum.photos/seed/pilo/1200/800" alt="PILO robot tracker concept" loading="lazy" />
+              <span class="project-card__badge" data-i18n="badge.product">PRODUCT</span>
+              <span class="tape tape--card" aria-hidden="true"></span>
+            </div>
+            <div class="project-card__body">
+              <header class="project-card__head">
+                <h3 class="project-card__title">PILO</h3>
+                <span class="project-card__year">2026</span>
+              </header>
+              <p class="project-card__desc" data-i18n="card.pilo.desc">
+                Концепт робота-трекера для таблеток.
+              </p>
+              <ul class="project-card__tags">
+                <li class="tag tag--purple">3D</li>
+                <li class="tag tag--orange">Product</li>
+                <li class="tag tag--blue">UI</li>
+              </ul>
+              <span class="project-card__more" data-i18n="card.more">Смотреть →</span>
+            </div>
+          </article>
+
+          <!-- 3D Print -->
+          <article class="project-card project-card--lg" data-category="web ui graphic" data-project="print" tabindex="0" role="button" aria-label="Open 3D print studio project">
+            <div class="project-card__media">
+              <img src="https://picsum.photos/seed/3dprint/1200/800" alt="3D print studio website" loading="lazy" />
+              <span class="project-card__badge" data-i18n="badge.web">WEB</span>
+              <span class="sticker sticker--pink sticker--small sticker--rotate-l project-card__sticker" aria-hidden="true">New!</span>
+            </div>
+            <div class="project-card__body">
+              <header class="project-card__head">
+                <h3 class="project-card__title">3D PRINT STUDIO</h3>
+                <span class="project-card__year">2025</span>
+              </header>
+              <p class="project-card__desc" data-i18n="card.print.desc">
+                Веб-сайт для студии 3D-печати: прототип и финальная реализация на HTML/CSS/JS.
+              </p>
+              <ul class="project-card__tags">
+                <li class="tag tag--pink">Web Design</li>
+                <li class="tag tag--blue">Frontend</li>
+                <li class="tag tag--yellow">HTML/CSS/JS</li>
+              </ul>
+              <span class="project-card__more" data-i18n="card.more">Смотреть →</span>
+            </div>
+          </article>
+
+          <!-- Tommy -->
+          <article class="project-card" data-category="branding graphic" data-project="tommy" tabindex="0" role="button" aria-label="Open Tommy Hilfiger project">
+            <div class="project-card__media">
+              <img src="https://picsum.photos/seed/tommy/1200/800" alt="Tommy Hilfiger exhibition concept" loading="lazy" />
+              <span class="project-card__badge" data-i18n="badge.brand">BRANDING</span>
+              <span class="tape tape--card" aria-hidden="true"></span>
+            </div>
+            <div class="project-card__body">
+              <header class="project-card__head">
+                <h3 class="project-card__title">TOMMY HILFIGER</h3>
+                <span class="project-card__year">2025</span>
+              </header>
+              <p class="project-card__desc" data-i18n="card.tommy.desc">
+                Концепция интерактивной выставки: айдентика, 3D-пространство, афиши.
+              </p>
+              <ul class="project-card__tags">
+                <li class="tag tag--pink">Branding</li>
+                <li class="tag tag--purple">3D</li>
+                <li class="tag tag--orange">Exhibition</li>
+              </ul>
+              <span class="project-card__more" data-i18n="card.more">Смотреть →</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION ============ -->
+    <section id="education" class="section education">
+      <div class="container">
+        <header class="section__head">
+          <span class="section__index">04</span>
+          <h2 class="section__title" data-i18n="edu.title">Образование</h2>
+          <span class="section__marker" data-i18n="edu.marker">Education →</span>
+        </header>
+
+        <article class="paper-card edu__card">
+          <div class="edu__years" aria-hidden="true">
+            <span>2023</span>
+            <span class="edu__arrow">↓</span>
+            <span>2027</span>
+          </div>
+          <div class="edu__info">
+            <h3 class="edu__uni">СПбГУПТД</h3>
+            <p class="edu__uni-full" data-i18n="edu.uniFull">
+              Санкт-Петербургский государственный университет промышленных технологий и дизайна
+            </p>
+            <p class="edu__program">
+              <strong data-i18n="edu.faculty">ЦАТ</strong> ·
+              <span data-i18n="edu.program">«Прикладная информатика в дизайне»</span>
+            </p>
+            <p class="edu__current" data-i18n="edu.current">Сейчас: 4 курс</p>
+            <div class="edu__stamp" aria-hidden="true">4/4</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section id="skills" class="section skills">
+      <div class="container">
+        <header class="section__head">
+          <span class="section__index">05</span>
+          <h2 class="section__title" data-i18n="skills.title">Навыки</h2>
+          <span class="section__marker" data-i18n="skills.marker">Skills →</span>
+        </header>
+
+        <div class="skills__grid">
+          <div class="skills__group paper-card">
+            <h3 class="skills__group-title">
+              <span class="marker-marker" data-i18n="skills.design">DESIGN</span>
+            </h3>
+            <ul class="skills__list">
+              <li class="tag tag--pink">Web Design</li>
+              <li class="tag tag--blue">Graphic Design</li>
+              <li class="tag tag--purple">UI Design</li>
+              <li class="tag tag--yellow">Branding</li>
+              <li class="tag tag--green">Typography</li>
+              <li class="tag tag--orange">Art Direction</li>
+              <li class="tag tag--pink">Illustration</li>
+            </ul>
+          </div>
+
+          <div class="skills__group paper-card">
+            <h3 class="skills__group-title">
+              <span class="marker-marker marker-marker--blue" data-i18n="skills.tools">TOOLS</span>
+            </h3>
+            <ul class="skills__list">
+              <li class="tag tag--blue">Figma</li>
+              <li class="tag tag--purple">Photoshop</li>
+              <li class="tag tag--orange">Illustrator</li>
+              <li class="tag tag--pink">After Effects</li>
+              <li class="tag tag--green">Blender</li>
+              <li class="tag tag--yellow">VS Code</li>
+            </ul>
+          </div>
+
+          <div class="skills__group paper-card">
+            <h3 class="skills__group-title">
+              <span class="marker-marker marker-marker--green" data-i18n="skills.dev">DEVELOPMENT</span>
+            </h3>
+            <ul class="skills__list">
+              <li class="tag tag--orange">HTML</li>
+              <li class="tag tag--blue">CSS</li>
+              <li class="tag tag--yellow">JavaScript</li>
+            </ul>
+          </div>
+
+          <div class="skills__group paper-card skills__group--languages">
+            <h3 class="skills__group-title">
+              <span class="marker-marker marker-marker--pink" data-i18n="languages.title">LANGUAGES</span>
+            </h3>
+            <ul class="skills__list skills__list--lang">
+              <li class="lang-card">
+                <span class="lang-card__flag" aria-hidden="true">🇷🇺</span>
+                <span class="lang-card__name" data-i18n="lang.russian">Russian</span>
+                <span class="lang-card__level" data-i18n="lang.native">Native</span>
+              </li>
+              <li class="lang-card">
+                <span class="lang-card__flag" aria-hidden="true">🇬🇧</span>
+                <span class="lang-card__name">English</span>
+                <span class="lang-card__level">B1 / Intermediate</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contacts" class="section contact">
+      <div class="container">
+        <header class="section__head">
+          <span class="section__index">06</span>
+          <h2 class="section__title" data-i18n="contact.title">Связаться со мной</h2>
+          <span class="section__marker" data-i18n="contact.marker">Let's talk →</span>
+        </header>
+
+        <div class="contact__grid">
+          <div class="contact__main paper-card">
+            <div class="contact__sticker" aria-hidden="true">✦ OPEN FOR WORK ✦</div>
+            <h3 class="contact__heading" data-i18n="contact.heading">Есть идея? Давай обсудим.</h3>
+            <p class="contact__sub" data-i18n="contact.sub">
+              Открыта к коллаборациям, стажировкам и интересным проектам в дизайне.
+            </p>
+
+            <div class="contact__buttons">
+              <a class="btn btn--primary" href="mailto:email-vikazar2005@gmail.com" data-i18n="contact.mailBtn">
+                Написать на почту
+              </a>
+              <a class="btn btn--outline" href="https://t.me/dxbxrxf" target="_blank" rel="noopener" data-i18n="contact.tgBtn">
+                Открыть Telegram
+              </a>
+              <button class="btn btn--ghost" id="copy-email" type="button" data-email="email-vikazar2005@gmail.com" data-i18n="contact.copyBtn">
+                Скопировать email
+              </button>
+            </div>
+          </div>
+
+          <aside class="contact__aside">
+            <div class="contact__info">
+              <span class="contact__label" data-i18n="contact.emailLabel">Email</span>
+              <a href="mailto:email-vikazar2005@gmail.com" class="contact__value">email-vikazar2005@gmail.com</a>
+            </div>
+            <div class="contact__info">
+              <span class="contact__label" data-i18n="contact.tgLabel">Telegram</span>
+              <a href="https://t.me/dxbxrxf" target="_blank" rel="noopener" class="contact__value">@dxbxrxf</a>
+            </div>
+
+            <div class="paper-card contact__note">
+              <span class="hero__hand" data-i18n="contact.note">Лучше писать в Telegram ↓</span>
+              <div class="decor decor--arrow-2" aria-hidden="true">
+                <svg viewBox="0 0 80 60" width="70" height="52" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <path d="M6 8 Q 30 40, 60 46" />
+                  <path d="M50 36 L 66 48 L 52 56" />
+                </svg>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div class="site-footer__brand">
+        <span class="logo__mark">VZ</span>
+        <div>
+          <p class="site-footer__name">Viktoria Zharkova</p>
+          <p class="site-footer__role">Web Designer</p>
+        </div>
+      </div>
+
+      <p class="site-footer__copy">© 2026 · <span data-i18n="footer.made">Создано с вниманием к деталям.</span></p>
+
+      <ul class="site-footer__links">
+        <li><a href="mailto:email-vikazar2005@gmail.com">Email</a></li>
+        <li><a href="https://t.me/dxbxrxf" target="_blank" rel="noopener">Telegram</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="back-to-top" aria-label="Наверх" type="button">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 19V5M5 12l7-7 7 7" />
+    </svg>
+  </button>
+
+  <!-- ============ MODAL ============ -->
+  <div class="modal" id="project-modal" aria-hidden="true">
+    <div class="modal__overlay" data-modal-close></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal__close" type="button" aria-label="Close modal" data-modal-close>
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <path d="M18 6L6 18M6 6l12 12" />
+        </svg>
+      </button>
+      <div class="modal__body" id="modal-body">
+        <!-- filled with JS -->
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
