@@ -674,9 +674,6 @@ function initReveal() {
   
   /* ---------------------------------------------------------
    11. SMOOTH SCROLL
-   Свой rAF-движок — одинаково работает во всех браузерах,
-   не конфликтует с `scroll-behavior: smooth` и «поднимает»
-   reveal-анимации блоков по пути.
    --------------------------------------------------------- */
 const easeInOutCubic = t =>
   t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
@@ -687,14 +684,10 @@ function animateScrollTo(targetY, customDuration) {
 
   if (Math.abs(distance) < 2) return;
 
-  // Пока мы рулим скроллом вручную — отключаем нативный smooth,
-  // иначе он «спорит» с нашими кадрами
   const html = document.documentElement;
   const prevBehavior = html.style.scrollBehavior;
   html.style.scrollBehavior = 'auto';
 
-  // Длительность зависит от дистанции: чем дальше — тем дольше,
-  // но не дольше 1.4с и не короче 0.5с
   const duration =
     customDuration ||
     Math.min(1400, Math.max(500, Math.abs(distance) * 0.55));
@@ -786,7 +779,6 @@ function initSmoothScroll() {
         ? data.images
         : ['images/placeholder.jpg'];
     
-      // сохраняем позицию, если модалка уже открыта (например, при смене языка)
       const prevTrack = modal.querySelector('.modal__gallery-track');
       const prevScroll = prevTrack ? prevTrack.scrollLeft : 0;
     
@@ -858,7 +850,6 @@ function initSmoothScroll() {
     
       initModalGallery(modal, images.length);
     
-      // восстановить позицию скролла галереи (актуально при смене языка)
       if (prevScroll > 0) {
         const track = modal.querySelector('.modal__gallery-track');
         if (track) {
@@ -903,7 +894,6 @@ function initSmoothScroll() {
         dot.addEventListener('click', () => goTo(parseInt(dot.dataset.index, 10)));
       });
     
-      // синхронизация точек при скролле / свайпе
       let rafId = 0;
       track.addEventListener('scroll', () => {
         cancelAnimationFrame(rafId);
@@ -928,7 +918,6 @@ function initSmoothScroll() {
   }
   
   function initModal() {
-    // open on card click / Enter / Space
     $$('.project-card').forEach(card => {
       card.addEventListener('click', () => openModal(card.dataset.project));
       card.addEventListener('keydown', e => {
@@ -938,8 +927,7 @@ function initSmoothScroll() {
         }
       });
     });
-  
-    // close triggers
+
     $$('[data-modal-close]').forEach(el => {
       el.addEventListener('click', closeModal);
     });
@@ -951,7 +939,6 @@ function initSmoothScroll() {
       }
     });
   
-    // focus trap
     document.addEventListener('keydown', e => {
       const modal = $('#project-modal');
       if (!modal || !modal.classList.contains('is-open')) return;
